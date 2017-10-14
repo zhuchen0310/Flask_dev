@@ -1,0 +1,23 @@
+项目文档：
+1. 根目录      说明
+    /ihome      项目应用核心目录
+    /logs       项目日志目录
+
+    接口文档.txt
+    需求文档.txt
+    areas_facility.sql  sql 数据
+    config.py       配置文件
+    manage.py       启动文件
+    requirements.txt    依赖包
+
+
+2. 项目/ihome目录   说明
+
+    /api_1_0    项目视图函数 后端API接口
+    /libs       项目用到的第三方资源包位置 (云通信)
+    /static     项目静态文件目录
+    /utils      项目通用设施--自定义状态码，登录验证装饰器等
+    __init__.py 项目应用初始化文件--应用程序实例，数据库实例，蓝图，日志等
+    constants.py 项目常量信息--数据库缓存信息，验证码，房屋信息
+    models.py   项目模型类
+    web_page.py 视图函数--用来处理静态页面的访问
