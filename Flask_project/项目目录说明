@@ -21,3 +21,22 @@
     constants.py 项目常量信息--数据库缓存信息，验证码，房屋信息
     models.py   项目模型类
     web_page.py 视图函数--用来处理静态页面的访问
+
+
+3. 项目/ihome/libs/目录下
+    /yuntongxun/    用来存放第三方插件 （云通讯）
+
+4. 项目/ihome/static/目录下
+    /css/       项目css文件
+    /html/      项目静态html文件
+    /js/        项目js配置文件
+    /images/    项目images配置文件
+    /plugins/   项目前端插件 bootstrap,switch,swiper等
+    favicon.ico 项目logo
+
+5. 项目/ihome/utils/目录下
+    /captcha/   图片验证码生成
+    commons.py  通用设施--正则url，登录验证装饰器等
+    image_storage.py    七牛云图片存储文件
+    response_code.py    自定义状态码文件
+    sms.py              短信文件
