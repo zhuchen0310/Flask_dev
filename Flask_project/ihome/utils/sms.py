@@ -6,22 +6,22 @@
 from ihome.libs.yuntongxun.CCPRestSDK import REST
 import ConfigParser
 
-accountSid = '8aaf07085f004cdb015f0b3c98c30547'
+_accountSid = '@'
 # 说明：主账号，登陆云通讯网站后，可在控制台首页中看到开发者主账号ACCOUNT SID。
 
-accountToken = 'f518266510dc4cd4809f43b01843c36d'
+_accountToken = '@'
 # 说明：主账号Token，登陆云通讯网站后，可在控制台首页中看到开发者主账号AUTH TOKEN。
 
-appId = '8aaf07085f004cdb015f0b3c9908054b'
+_appId = '8aaf07085f004cdb015f0b3c9908054b'
 # 请使用管理控制台中已创建应用的APPID。
 
-serverIP = 'sandboxapp.cloopen.com'
+_serverIP = 'sandboxapp.cloopen.com'
 # 说明：请求地址，生产环境配置成app.cloopen.com。
 
-serverPort = '8883'
+_serverPort = '8883'
 # 说明：请求端口 ，生产环境为8883.
 
-softVersion = '2013-12-26'  # 说明：REST API版本号保持不变。
+_softVersion = '2013-12-26'  # 说明：REST API版本号保持不变。
 
 '''
 def sendTemplateSMS(to, datas, tempId):
@@ -40,6 +40,41 @@ def sendTemplateSMS(to, datas, tempId):
 '''
 
 
+class CCP(object):
+    """发送短信的辅助类"""
+    def __new__(cls, *args, **kwargs):
+        """
+        判断是否存在类属性 _instance, _instance是类CCP的唯一对象，单例模式
+
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        if not hasattr(CCP, '_instance'):
+            cls._instance = super(CCP, cls).__new__(cls, *args, **kwargs)
+            cls._instance.rest = REST(_serverIP, _serverPort, _softVersion)
+            cls._instance.rest.setAccount(_accountSid, _accountToken)
+            cls._instance.rest.setAppId(_appId)
+            return cls._instance
+
+    def send_template_sms(self, to, datas, temp_id):
+        """
+        短信发送模板
+        :param to:  接收手机号
+        :param datas: 内容数据 格式为数组，
+        :param temp_id: 模板id
+        :return: 成or 失败
+        """
+        result = self.rest.sendTemplateSMS(to, datas, temp_id)
+        # 如果发送短信成功，返回的字典数据result中的statuCode字段值为‘000000’
+        if result.get('statusCode') == '000000':
+            return 0    # 成功
+        else:
+            return -1   # 失败
+
+
         # 启动
 if __name__ == '__main__':
-    pass
+    ccp = CCP()
+    ret = ccp.send_template_sms('15513979101', ['1234', 5], 1)
+    print ret

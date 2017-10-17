@@ -3,44 +3,48 @@
     /ihome      项目应用核心目录
     /logs       项目日志目录
 
-    接口文档.txt
-    需求文档.txt
+    接口文档.txt    todo
+    需求文档.txt        todo
     areas_facility.sql  sql 数据                  ####
     config.py       配置文件                    ####
-    manage.py       启动文件
+    manage.py       启动文件        todo
     requirements.txt    依赖包                 ####
 
 
 2. 项目/ihome目录   说明
 
-    /api_1_0    项目视图函数 后端API接口
-    /libs       项目用到的第三方资源包位置 (云通信)
-    /static     项目静态文件目录
-    /utils      项目通用设施--自定义状态码，登录验证装饰器等
+    /api_1_0    项目视图函数 后端API接口  todo
+    /libs       项目用到的第三方资源包位置 (云通信)     #b2
+    /static     项目静态文件目录                        #b2
+    /utils      项目通用设施--自定义状态码，登录验证装饰器等 #b2
     __init__.py 项目应用初始化文件--应用程序实例，数据库实例，蓝图，日志等      ####
-    constants.py 项目常量信息--数据库缓存信息，验证码，房屋信息       ####
-    models.py   项目模型类       # 完成User
+    constants.py 项目常量信息--数据库缓存信息，验证码，房屋信息       ####b2--->
+    models.py   项目模型类       # 完成User    #b2-----> todo
     web_page.py 视图函数--用来处理静态页面的访问       # a1
 
     2.1 项目/ihome/api_1_0
         __init__.py     项目初始化文件     #####
-        verifycode.py   发送短信业务
+        verifycode.py   发送短信业务  #b2
+        注册 登录
+        todo
+
 
 
 3. 项目/ihome/libs/目录下
-    /yuntongxun/    用来存放第三方插件 （云通讯）         !!!
+    /yuntongxun/    用来存放第三方插件 （云通讯）         # #b2
 
 4. 项目/ihome/static/目录下
-    /css/       项目css文件
-    /html/      项目静态html文件
-    /js/        项目js配置文件
-    /images/    项目images配置文件
-    /plugins/   项目前端插件 bootstrap,switch,swiper等
-    favicon.ico 项目logo
+    /css/       项目css文件     #b2
+    /html/      项目静态html文件  #b2
+    /js/        项目js配置文件    #b2
+    /images/    项目images配置文件    #b2
+    /plugins/   项目前端插件 bootstrap,switch,swiper等 #b2
+    favicon.ico 项目logo  #b2
 
 5. 项目/ihome/utils/目录下
     /captcha/   图片验证码生成
-    commons.py  通用设施--正则url，登录验证装饰器等
+    /log/       日志存放    #b2
+    commons.py  通用设施--正则url，登录验证装饰器等    #a1
     image_storage.py    七牛云图片存储文件   #a1
     response_code.py    自定义状态码文件    #a1
     sms.py              短信文件        #a1
