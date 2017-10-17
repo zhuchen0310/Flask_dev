@@ -27,8 +27,8 @@ class User(BaseModel, db.Model):
     name = db.Column(db.String(32), unique=True, nullable=False)  # 用户名
     password_hash = db.Column(db.String(128), nullable=False)  # 用户密码
     mobile = db.Column(db.String(11), unique=True, nullable=False)  # 手机号
-    real_name = db.Column(db.String(32), nullable=False)    # 真名
-    id_code = db.Column(db.Integer(20), unique=True, nullable=False)    # 身份证号
+    real_name = db.Column(db.String(32))    # 真名
+    id_code = db.Column(db.String(20))    # 身份证号
     avatar_url = db.Column(db.String(128), nullable=False)  # 头像路径
     houses = db.relationship("Hose", backref="user")    # 用户发布的房子
     orders = db.relationship("Order", backref="user")   # 用户下的订单

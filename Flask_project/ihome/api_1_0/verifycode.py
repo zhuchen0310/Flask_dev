@@ -12,7 +12,7 @@ from ihome import redis_store
 # 导入常量文件
 from ihome import constants
 # 导入logger
-from flask import current_app, jsonify, make_response, request
+from flask import current_app, jsonify, make_response, request, session
 # 导入自定义状态码
 from ihome.utils.response_code import RET
 # 导入re模块
@@ -23,7 +23,8 @@ from ihome.models import User
 import random
 # 导入云通讯
 from ihome.utils import sms
-
+# 导入db
+from ihome import db
 @api.route('/imagecode/<image_code_id>', methods=['GET'])
 def generate_image_code(image_code_id):
     """
@@ -51,7 +52,7 @@ def generate_image_code(image_code_id):
         response.headers['Content-Type'] = 'image/jpg'
         return response
 
-@api.route('/smscode/<mobile>', method=['GET'])
+@api.route('/smscode/<mobile>', methods=['GET'])
 def send_sms_code(mobile):
     """
     发送短信验证码：获取参数/校验参数/查询数据库/返回结果
@@ -131,7 +132,66 @@ def register():
     # 2.校验参数是否存在
     if not user_data:
         return jsonify(errno=RET.DATAERR, errmsg='参数错误')
-    # 3.
+    # 3.进一步获取参数信息
+    mobile = user_data.get('mobile')
+    sms_code = user_data.get('sms_code')
+    password = user_data.get('password')
+    # 4.校验参数是否完整
+    if not all([mobile, sms_code, password]):
+        return jsonify(errno=RET.PARAMERR, errmsg='参数缺失')
+    # 5.校验手机号的完整
+    if not re.match(r'^1[34578]\d{9}$', mobile):
+        return jsonify(errno=RET.DATAERR, errmsg='手机号格式错误')
+    # 6.校验短信验证码是否正确
+    try:
+        real_sms_code = redis_store.get('SMSCode_'+mobile)
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg='获取验证码异常')
+    # 7.校验查询结果
+    if not real_sms_code:
+        return jsonify(errno=RET.DATAEXIST, errmsg='短信验证码过期')
+    # 8.比较短信验证码
+    if real_sms_code != str(sms_code):
+        return jsonify(errno=RET.DATAERR, errmsg='短信验证码犯错误')
+    # 9.删除缓存
+    try:
+        redis_store.delete('SMSCode'+mobile)
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg='缓存清楚失败')
+    # 10.校验手机号是否注册
+    try:
+        user = User.query.filter_by(mobile=mobile).first()
+
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg='查询异常')
+
+    else:
+        # 11.校验手机号是否注册
+        if user:
+            return jsonify(errno=RET.DATAEXIST, errmsg='手机号已注册')
+    # 12.存储用户信息，使用模型类存储用户注册信息
+    user = User(name=mobile, mobile=mobile)
+    # 通过user.password
+    user.password = password
+    try:
+        # 13.调用数据库会话对象保存注册信息，提交数据到mysql数据库
+        db.session.add(user)
+        db.session.commit()
+    except Exception as e:
+        current_app.logger.error(e)
+        # 14.执行回滚
+        db.session.rollback()
+        return jsonify(errno=RET.DBERR, errmsg='保存用户信息异常')
+    # 15.添加用户信息到缓存中
+    session['user_id'] = user.id
+    session['name'] = mobile
+    session['mobile'] = mobile
+    # 16.返回前端相应数据
+    return jsonify(errno=RET.OK, errmsg='ok', data=user.to_dict())
+
 
 # TODO
 

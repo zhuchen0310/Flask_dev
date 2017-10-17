@@ -48,10 +48,11 @@ def create_app(config_name):
 
     # 使用蓝图
     from .api_1_0 import api as api_1_0_blueprint
+    # from .api_1_0 import api as api_1_0_blueprint
     app.register_blueprint(api_1_0_blueprint, url_prefix="/api/v1.0")
 
-    # from .web_page import html as html_blueprint
-    # app.register_blueprint(html_blueprint)
+    from .web_page import html as html_blueprint
+    app.register_blueprint(html_blueprint)
 
     return app
 

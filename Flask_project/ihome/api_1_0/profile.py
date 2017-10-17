@@ -14,8 +14,12 @@ import re
 from ihome.models import User
 # 导入验证登录装饰器
 from ihome.utils.commons import login_required
-
-
+# 导入七牛云
+from ihome.utils.image_storage import storage
+# 导入db
+from ihome import db
+# 导入常量信息
+from ihome import constants
 # TODO
 
 @api.route('/sessions', methods=["POST"])
@@ -77,7 +81,7 @@ def logout():
 @login_required
 def get_user_info():
     """
-
+    获取用户信息
     :return:
     """
     # 获取用户id
@@ -90,6 +94,119 @@ def get_user_info():
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.DBERR, errmsg='数据库查询异常')
+    # 校验查询结果
+    if not user:
+        return jsonify(errno=RET.NODATA, errmsg='无效操作')
+    # 返回结果
+    return jsonify(errno=RET.OK, errmsg='ok', data=user.to_dict())
+
+
+
+@api.route('/user/avater', methods=['POST'])
+@login_required
+def set_user_avater():
+    """
+    上传用户头像
+    :return:
+    """
+    # 1.获取参数
+    user_id = g.user_id
+    avater = request.files.get('avater')
+    # 2.校验参数
+    if not avater:
+        return jsonify(errno=RET.PARAMERR, errmsg='未上传图片')
+    # 3.读取图片数据
+    avater_data = avater.read()
+    # 4.上传七牛云
+    try:
+        image_name = storage(avater_data)
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.THIRDERR, errmsg='上传图片失败')
+    # 5.存储图片信息到数据库中
+    try:
+        User.query.filter_by(id=user_id).updata({'avater_url':image_name})
+        db.session.commit()
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg='保存图片异常')
+    # 6.拼接图片的完成路径
+    image_url = constants.QINIU_DOMIN_PREFIX + image_name
+    # 7.返回前端
+    return jsonify(errno=RET.OK, errmsg='ok', data={'avater_url':image_url})
+
+
+@api.route('/user/name', methods=['PUT'])
+@login_required
+def change_user_name():
+    """
+    修改用户信息
+    :return:
+    """
+    # 1.获取参数
+    req_data = request.get_json()
+    # 2.进一步验证数据完整性
+    if not req_data:
+        return jsonify(errno=RET.PARAMERR, errmsg='参数错误')
+    # 3.进一步获取详细参数
+    name = req_data.get('name')
+    if not name:
+        return jsonify(errno=RET.PARAMERR, errmsg='参数缺失')
+    # 4.获取用户id
+    user_id = g.user_id
+    # 5.查询数据库,更新信息
+    try:
+        User.query.filter_by(id=user_id).updata({'name':name})
+        db.session.commit()
+
+    except Exception as e:
+        current_app.logger.error(e)
+        # 回滚
+        db.session.rollback()
+        return jsonify(errno=RET.DBERR, errmsg='更新数据库失败')
+
+    # 6.更新缓存中用户信息
+    session['name'] = name
+    # 7.返回结果
+    return jsonify(errno=RET.OK, errmsg='ok', data={'name':name})
+
+
+@api.route('/user/auth', methods=['POST'])
+@login_required
+def set_user_auth():
+    """
+    用户实名认证
+    :return:
+    """
+    # 获取用户id
+    user_id = g.user_id
+    # 获取参数
+    user_data = request.get_json()
+    # 校验参数
+    if not user_data:
+        return jsonify(errno=RET.PARAMERR, errmsg='参数错误')
+    # 进一步获取参数信息
+    real_name = user_data.get('real_name')
+    id_code = user_data.get('id_code')
+    # 校验参数完整性
+    if not all([real_name, id_code]):
+        return jsonify(errno=RET.PARAMERR, errmsg='参数缺失')
+    #todo 实际是需要掉第三方验证的
+
+    # 保存数据到数据库
+    try:
+        User.query.filter_by(id=user_id, real_name=None, id_code=None).update({'real_name':real_name, 'id_code':id_code})
+        # 提交
+        db.session.commit()
+
+    except Exception as e:
+        current_app.logger.error(e)
+        # 回滚
+        db.session.rollback()
+        return jsonify(errno=RET.DBERR, errmsg='更新数据库异常')
+    # 返回前端结果
+    return jsonify(errno=RET.OK, errmsg='ok')
+
 
 
 @api.route('/user/auth', methods=["GET"])
@@ -103,17 +220,19 @@ def get_user_auth():
     4/返回前端。user.auth_to_dict():user.to_dict()
     :return:
     """
+    # 获取id
     user_id = g.user.id
+    # 查询数据库
     try:
         user = User.query.filter_by(id=user_id).first()
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.DBERR, errmsg='数据库异常')
-
+    # 进行参数校验
     if user is None:
-        return jsonify(errno=RET.DATAERR, errmsg='无效错误')
+        return jsonify(errno=RET.DATAERR, errmsg='无效操作')
     else:
-        return jsonify(errno=RET.OK, errmsg='ok', data={'user'})
+        return jsonify(errno=RET.OK, errmsg='ok', data=user.auth_to_dict())
 
 
 if __name__ == '__main_':
