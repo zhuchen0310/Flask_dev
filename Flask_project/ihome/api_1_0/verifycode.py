@@ -25,6 +25,7 @@ import random
 from ihome.utils import sms
 # 导入db
 from ihome import db
+
 @api.route('/imagecode/<image_code_id>', methods=['GET'])
 def generate_image_code(image_code_id):
     """
@@ -39,7 +40,7 @@ def generate_image_code(image_code_id):
     name, text, image = captcha.generate_captcha()
     # 将验证码保存到ｒｅｄｉｓ中
     try:
-        redis_store.setex('Imagecode_' + image_code_id, constants.TMAGE_CODE_REDIS_EXPIRES, text)
+        redis_store.setex('ImageCode_' + image_code_id, constants.TMAGE_CODE_REDIS_EXPIRES, text)
 
     # 记录异常到日志
     except Exception as e:
@@ -61,7 +62,9 @@ def send_sms_code(mobile):
     """
     # 1.获取参数， 图片验证码
     image_code = request.args.get('text')
+
     image_code_id = request.args.get('id')
+    # print ('%s:%s')%(image_code, image_code_id)
     # 2.校验参数的完整性
     if not all([mobile, image_code_id, image_code]):
         return jsonify(errno=RET.PARAMERR, errmsg='参数错误')
@@ -89,6 +92,7 @@ def send_sms_code(mobile):
     # 8.验证手机号是否注册
     try:
         user = User.query.filter_by(mobile=mobile).first()
+        # print ("2222222222222222%s")%user
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.DBERR, errmsg='数据查询异常')

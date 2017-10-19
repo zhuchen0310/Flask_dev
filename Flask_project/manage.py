@@ -22,4 +22,5 @@ manager.add_command('db', MigrateCommand)
 
 # 启动
 if __name__ == '__main__':
-    pass
+    print app.url_map
+    manager.run()

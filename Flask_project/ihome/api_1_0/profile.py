@@ -76,7 +76,7 @@ def logout():
     session.clear()
     return jsonify(errno=RET.OK, errmsg='OK')
 
-
+# www.wx.com/user/info/
 @api.route('/user', methods=['GET'])
 @login_required
 def get_user_info():

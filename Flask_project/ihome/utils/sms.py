@@ -6,10 +6,10 @@
 from ihome.libs.yuntongxun.CCPRestSDK import REST
 import ConfigParser
 
-_accountSid = '@'
+_accountSid = '8aaf07085f004cdb015f0b3c98c30547'
 # 说明：主账号，登陆云通讯网站后，可在控制台首页中看到开发者主账号ACCOUNT SID。
 
-_accountToken = '@'
+_accountToken = 'f518266510dc4cd4809f43b01843c36d'
 # 说明：主账号Token，登陆云通讯网站后，可在控制台首页中看到开发者主账号AUTH TOKEN。
 
 _appId = '8aaf07085f004cdb015f0b3c9908054b'

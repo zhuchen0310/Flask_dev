@@ -15,7 +15,7 @@ class Config:
     # flask_SQLALchemy配置
     #
     # mysql配置
-    SQLALCHEMY_DATABASE_URI = 'mysql://python:python123456@127.0.0.1/ihome'
+    SQLALCHEMY_DATABASE_URI = 'mysql://python:python123456@127.0.0.1/ihome8'
     #
     # 追踪数据库的修改行为
     SQLALCHEMY_TRACK_MODIFICATIONS = True
@@ -53,6 +53,4 @@ config = {
     "production": ProductionConfig,  # 生产环境
 }
 
-# 启动
-if __name__ == '__main__':
-    pass
+

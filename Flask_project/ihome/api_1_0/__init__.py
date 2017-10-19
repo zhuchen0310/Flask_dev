@@ -3,12 +3,13 @@
 """版本初始化文件"""
 
 # 导包
-from flask import  Blueprint
+from flask import Blueprint
 
 api = Blueprint('api', __name__)
 
-from . import verifycode
-
+from . import verifycode, profile
+# import verifycode
+# import profile
 # TODO
 
 # 启动

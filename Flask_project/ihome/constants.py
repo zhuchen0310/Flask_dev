@@ -11,7 +11,7 @@ TMAGE_CODE_REDIS_EXPIRES = 300
 SMS_CODE_REDIS_EXPIRES = 300
 
 # 七牛空间域名 # todo 使用自己的域名
-QINIU_DOMIN_PREFIX = "http://***********.bkt.clouddn.com/"
+QINIU_DOMIN_PREFIX = "http://oxsl02hbn.bkt.clouddn.com/"
 
 # 城区信息缓存时间，单位：秒
 AREA_INFO_EXPIRES = 7200
