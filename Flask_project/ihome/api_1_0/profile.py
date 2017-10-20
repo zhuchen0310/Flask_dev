@@ -22,7 +22,7 @@ from ihome import db
 from ihome import constants
 # TODO
 
-@api.route('/sessions', methods=["POST"])
+@api.route('/session', methods=["POST"])
 def login():
     """
     /获取登录参数，mobile, passwd get_json()
@@ -85,7 +85,7 @@ def get_user_info():
     :return:
     """
     # 获取用户id
-    user_id = g.user.id
+    user_id = session.get('user_id')
     # 查询数据库，根据用户id查询用户信息
     try:
         user = User.query.filter_by(id=user_id).first()
@@ -102,30 +102,30 @@ def get_user_info():
 
 
 
-@api.route('/user/avater', methods=['POST'])
+@api.route('/user/avatar', methods=['POST'])
 @login_required
-def set_user_avater():
+def set_user_avatar():
     """
     上传用户头像
     :return:
     """
     # 1.获取参数
     user_id = g.user_id
-    avater = request.files.get('avater')
+    avatar = request.files.get('avatar')
     # 2.校验参数
-    if not avater:
+    if not avatar:
         return jsonify(errno=RET.PARAMERR, errmsg='未上传图片')
     # 3.读取图片数据
-    avater_data = avater.read()
+    avatar_data = avatar.read()
     # 4.上传七牛云
     try:
-        image_name = storage(avater_data)
+        image_name = storage(avatar_data)
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.THIRDERR, errmsg='上传图片失败')
     # 5.存储图片信息到数据库中
     try:
-        User.query.filter_by(id=user_id).updata({'avater_url':image_name})
+        User.query.filter_by(id=user_id).update({'avatar_url':image_name})
         db.session.commit()
     except Exception as e:
         current_app.logger.error(e)
@@ -133,7 +133,7 @@ def set_user_avater():
     # 6.拼接图片的完成路径
     image_url = constants.QINIU_DOMIN_PREFIX + image_name
     # 7.返回前端
-    return jsonify(errno=RET.OK, errmsg='ok', data={'avater_url':image_url})
+    return jsonify(errno=RET.OK, errmsg='ok', data={'avatar_url':image_url})
 
 
 @api.route('/user/name', methods=['PUT'])
@@ -156,7 +156,7 @@ def change_user_name():
     user_id = g.user_id
     # 5.查询数据库,更新信息
     try:
-        User.query.filter_by(id=user_id).updata({'name':name})
+        User.query.filter_by(id=user_id).update({'name':name})
         db.session.commit()
 
     except Exception as e:
@@ -187,7 +187,7 @@ def set_user_auth():
         return jsonify(errno=RET.PARAMERR, errmsg='参数错误')
     # 进一步获取参数信息
     real_name = user_data.get('real_name')
-    id_code = user_data.get('id_code')
+    id_code = user_data.get('id_card')
     # 校验参数完整性
     if not all([real_name, id_code]):
         return jsonify(errno=RET.PARAMERR, errmsg='参数缺失')
@@ -221,7 +221,7 @@ def get_user_auth():
     :return:
     """
     # 获取id
-    user_id = g.user.id
+    user_id = session.get('user_id')
     # 查询数据库
     try:
         user = User.query.filter_by(id=user_id).first()

@@ -7,7 +7,7 @@ from flask import Blueprint
 
 api = Blueprint('api', __name__)
 
-from . import verifycode, profile
+from . import verifycode, profile, house
 # import verifycode
 # import profile
 # TODO

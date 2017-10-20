@@ -302,3 +302,300 @@ INFO _internal.py:87 127.0.0.1 - - [19/Oct/2017 19:53:35] "GET /login.html HTTP/
 INFO _internal.py:87 127.0.0.1 - - [19/Oct/2017 19:53:35] "GET /static/css/ihome/login.css HTTP/1.1" 304 -
 INFO _internal.py:87 127.0.0.1 - - [19/Oct/2017 19:53:35] "GET /static/js/ihome/login.js HTTP/1.1" 304 -
 INFO _internal.py:87 127.0.0.1 - - [19/Oct/2017 19:53:48] "POST /api/v1.0/sessions HTTP/1.1" 200 -
+INFO _internal.py:87  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET / HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/js/jquery.min.js HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/plugins/font-awesome/css/font-awesome.min.css HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/plugins/swiper/css/swiper.min.css HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/css/ihome/index.css HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/css/reset.css HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/css/ihome/main.css HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/images/logo@128x59.png HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/plugins/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/js/template.js HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/plugins/swiper/js/swiper.jquery.min.js HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/js/ihome/index.js HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:33] "GET /static/js/ihome/index.js HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:38] "GET /login.html HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:38] "GET /static/css/ihome/login.css HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:38] "GET /static/js/ihome/login.js HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:45] "POST /api/v1.0/sessions HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:55:45] "GET /static/js/ihome/index.js HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:58:21] "GET /houses HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:58:45] "GET /home.html HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:58:54] "GET /my.html HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:58:54] "GET /static/css/ihome/my.css HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:58:54] "GET /static/js/ihome/my.js HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:58:54] "GET /api/v1.0/user HTTP/1.1" 500 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:58:58] "GET /profile.html HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:58:59] "GET /static/css/ihome/profile.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:58:59] "GET /static/js/ihome/profile.js?v=5 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:58:59] "GET /static/js/jquery.form.min.js HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:58:59] "GET /api/v1.0/user HTTP/1.1" 500 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 10:59:15] "POST /api/v1.0/user/avatar HTTP/1.1" 405 -
+ERROR profile.py:163 'BaseQuery' object has no attribute 'updata'
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:00:33] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+ERROR profile.py:163 'BaseQuery' object has no attribute 'updata'
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:00:37] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+ERROR profile.py:163 'BaseQuery' object has no attribute 'updata'
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:00:48] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:00:51] "POST /api/v1.0/user/avatar HTTP/1.1" 405 -
+ERROR profile.py:163 'BaseQuery' object has no attribute 'updata'
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:00:53] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+ERROR profile.py:163 'BaseQuery' object has no attribute 'updata'
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:00:56] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+ERROR profile.py:163 'BaseQuery' object has no attribute 'updata'
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:01:02] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:01:06] "GET /profile.html HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:01:06] "GET /api/v1.0/user HTTP/1.1" 500 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:01:35] "GET /api/v1.0/user HTTP/1.1" 500 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:01:49] "POST /api/v1.0/sessions HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:01:49] "GET /static/js/ihome/index.js HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:01:49] "GET /static/js/ihome/index.js HTTP/1.1" 404 -
+INFO _internal.py:87  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:05:02] "GET /static/js/ihome/index.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:05:02] "GET /api/v1.0/session HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:05:02] "GET /api/v1.0/houses/index HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:05:02] "GET /api/v1.0/areas HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:05:09] "GET / HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:05:09] "GET /api/v1.0/session HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:05:09] "GET /api/v1.0/areas HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:05:09] "GET /api/v1.0/houses/index HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:05:13] "GET / HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:05:13] "GET /api/v1.0/session HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:05:13] "GET /api/v1.0/houses/index HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:05:13] "GET /api/v1.0/areas HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:06:04] "GET / HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:06:04] "GET /api/v1.0/session HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:06:04] "GET /api/v1.0/houses/index HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:06:04] "GET /api/v1.0/areas HTTP/1.1" 404 -
+INFO _internal.py:87  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:11:01] "GET /api/v1.0/session HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:11:01] "GET /api/v1.0/houses/index HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:11:01] "GET /api/v1.0/areas HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:12:28] "GET /api/v1.0/areas HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:13:23] "GET /api/v1.0/user HTTP/1.1" 500 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:13:23] "GET /api/v1.0/user?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:13:23] "GET /api/v1.0/user?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:13:23] "GET /api/v1.0/user?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:13:23] "GET /api/v1.0/user?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:13:23] "GET /api/v1.0/user?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:13:32] "GET /api/v1.0/users HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:13:37] "GET /api/v1.0/auths HTTP/1.1" 404 -
+INFO _internal.py:87  * Detected change in '/home/zc/Flask_project/ihome/api_1_0/__init__.py', reloading
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:14:20] "GET /api/v1.0/session HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:14:21] "GET /api/v1.0/houses/index HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:14:21] "GET /api/v1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:14:50] "GET / HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:14:50] "GET /api/v1.0/session HTTP/1.1" 200 -
+INFO house.py:253  hide redis get house_index
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:14:50] "GET /api/v1.0/houses/index HTTP/1.1" 200 -
+INFO house.py:57 hit area info redis
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:14:50] "GET /api/v1.0/areas HTTP/1.1" 200 -
+INFO house.py:57 hit area info redis
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:15:00] "GET /api/v1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:15:11] "GET /search.html?aid=&aname=&sd=2017-10-28&ed= HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:15:11] "GET /static/css/ihome/search.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:15:11] "GET /static/js/ihome/search.js HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:15:11] "GET /static/js/ihome/search.js HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:15:15] "GET /api/v1.0/session HTTP/1.1" 200 -
+INFO house.py:253  hide redis get house_index
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:15:15] "GET /api/v1.0/houses/index HTTP/1.1" 200 -
+INFO house.py:57 hit area info redis
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:15:15] "GET /api/v1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:15:16] "GET /api/v1.0/user HTTP/1.1" 500 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:15:22] "GET /api/v1.0/user HTTP/1.1" 500 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:15:29] "POST /api/v1.0/user/avatar HTTP/1.1" 405 -
+ERROR profile.py:163 'BaseQuery' object has no attribute 'updata'
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:15:34] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+ERROR profile.py:163 'BaseQuery' object has no attribute 'updata'
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:15:39] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:16:32] "POST /api/v1.0/user/avatar HTTP/1.1" 405 -
+INFO _internal.py:87  * Detected change in '/home/zc/Flask_project/ihome/api_1_0/profile.py', reloading
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:17:04] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:17:10] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+ERROR profile.py:163 'BaseQuery' object has no attribute 'updata'
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:17:13] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+INFO _internal.py:87  * Detected change in '/home/zc/Flask_project/ihome/api_1_0/profile.py', reloading
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+ERROR profile.py:163 'BaseQuery' object has no attribute 'updata'
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:17:48] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:17:50] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:17:59] "GET /profile.html HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:17:59] "GET /api/v1.0/user HTTP/1.1" 500 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:18:06] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:19:37] "GET /api/v1.0/session HTTP/1.1" 200 -
+INFO house.py:253  hide redis get house_index
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:19:37] "GET /api/v1.0/houses/index HTTP/1.1" 200 -
+INFO house.py:57 hit area info redis
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:19:37] "GET /api/v1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:19:41] "GET /api/v1.0/user HTTP/1.1" 500 -
+INFO _internal.py:87  * Detected change in '/home/zc/Flask_project/ihome/api_1_0/profile.py', reloading
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:20:21] "GET /my.html HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:20:21] "GET /api/v1.0/user HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:20:23] "GET /api/v1.0/user HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:20:28] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+ERROR profile.py:163 'BaseQuery' object has no attribute 'updata'
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:20:30] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+ERROR profile.py:163 'BaseQuery' object has no attribute 'updata'
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:20:33] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:20:40] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+INFO _internal.py:87  * Detected change in '/home/zc/Flask_project/ihome/api_1_0/profile.py', reloading
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:21:33] "GET /profile.html HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:21:33] "GET /api/v1.0/user HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:21:43] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:21:58] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:22:07] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:22:13] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:22:17] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:22:31] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:22:36] "GET /static/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:22:43] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+INFO _internal.py:87  * Detected change in '/home/zc/Flask_project/ihome/api_1_0/profile.py', reloading
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:23:21] "GET /profile.html HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:23:22] "GET /api/v1.0/user HTTP/1.1" 200 -
+DEBUG connectionpool.py:824 Starting new HTTPS connection (1): uc.qbox.me
+DEBUG connectionpool.py:396 https://uc.qbox.me:443 "GET /v1/query?ak=Sy3B5eX9iv-RFMbXUbbZTPQdxMN4IJdXLNODGeYI&bucket=ihome HTTP/1.1" 200 239
+DEBUG retry.py:200 Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+DEBUG connectionpool.py:208 Starting new HTTP connection (1): up.qiniu.com
+DEBUG connectionpool.py:396 http://up.qiniu.com:80 "POST / HTTP/1.1" 200 76
+ERROR profile.py:131 Entity '<class 'ihome.models.User'>' has no property 'avater_url'
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:23:46] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+INFO _internal.py:87  * Detected change in '/home/zc/Flask_project/ihome/api_1_0/profile.py', reloading
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+DEBUG retry.py:200 Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+DEBUG connectionpool.py:208 Starting new HTTP connection (1): up.qiniu.com
+DEBUG connectionpool.py:396 http://up.qiniu.com:80 "POST / HTTP/1.1" 200 76
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:08] "POST /api/v1.0/user/avatar HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:08] "GET /profile.html HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:08] "GET /api/v1.0/user HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:20] "PUT /api/v1.0/user/name HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:24] "GET /api/v1.0/user HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:28] "GET /orders.html HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:28] "GET /static/css/ihome/orders.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:28] "GET /static/js/ihome/orders.js HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:30] "GET /api/v1.0/user HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:32] "GET /lorders.html HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:32] "GET /static/js/ihome/lorders.js HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:32] "GET /static/js/ihome/lorders.js HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:35] "GET /api/v1.0/user HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:37] "GET /auth.html HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:37] "GET /static/js/ihome/auth.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:25:38] "GET /api/v1.0/user/auth HTTP/1.1" 500 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:26:13] "POST /api/v1.0/user/auth HTTP/1.1" 200 -
+INFO _internal.py:87  * Detected change in '/home/zc/Flask_project/ihome/api_1_0/profile.py', reloading
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:26:54] "POST /api/v1.0/user/auth HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:26:56] "GET /auth.html HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:26:56] "GET /api/v1.0/user/auth HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:27:04] "POST /api/v1.0/user/auth HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:27:11] "GET /api/v1.0/user HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:27:12] "GET /static/js/ihome/orders.js HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:27:12] "GET /static/js/ihome/orders.js HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:27:15] "GET /api/v1.0/user HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:27:17] "GET /api/v1.0/user/auth HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:27:20] "GET /api/v1.0/user HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:28:03] "GET /api/v1.0/user/auth HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:28:13] "POST /api/v1.0/user/auth HTTP/1.1" 200 -
+INFO _internal.py:87  * Detected change in '/home/zc/Flask_project/ihome/api_1_0/profile.py', reloading
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:29:05] "POST /api/v1.0/user/auth HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:29:11] "GET /auth.html HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:29:11] "GET /api/v1.0/user/auth HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:29:20] "POST /api/v1.0/user/auth HTTP/1.1" 200 -
+INFO _internal.py:87  * Detected change in '/home/zc/Flask_project/ihome/api_1_0/profile.py', reloading
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:30:10] "POST /api/v1.0/user/auth HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:30:13] "GET /api/v1.0/user HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:30:15] "GET /api/v1.0/user/auth HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:30:18] "GET /api/v1.0/user HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:30:25] "GET /api/v1.0/session HTTP/1.1" 200 -
+INFO house.py:253  hide redis get house_index
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:30:26] "GET /api/v1.0/houses/index HTTP/1.1" 200 -
+INFO house.py:57 hit area info redis
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:30:26] "GET /api/v1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:30:26] "GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:35:22] "GET / HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:35:22] "GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:35:22] "GET /api/v1.0/session HTTP/1.1" 200 -
+INFO house.py:253  hide redis get house_index
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:35:22] "GET /api/v1.0/houses/index HTTP/1.1" 200 -
+INFO house.py:57 hit area info redis
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:35:22] "GET /api/v1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:35:41] "GET /search.html?aid=&aname=&sd=&ed= HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:35:41] "GET /static/js/ihome/search.js HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:35:41] "GET /static/js/ihome/search.js HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:35:42] "GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:35:42] "GET /api/v1.0/session HTTP/1.1" 200 -
+INFO house.py:253  hide redis get house_index
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:35:42] "GET /api/v1.0/houses/index HTTP/1.1" 200 -
+INFO house.py:57 hit area info redis
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:35:42] "GET /api/v1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:39:49] "GET / HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:39:49] "GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:39:49] "GET /api/v1.0/session HTTP/1.1" 200 -
+INFO house.py:253  hide redis get house_index
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:39:49] "GET /api/v1.0/houses/index HTTP/1.1" 200 -
+INFO house.py:57 hit area info redis
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:39:49] "GET /api/v1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:39:55] "GET / HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:39:56] "GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:39:56] "GET /api/v1.0/session HTTP/1.1" 200 -
+INFO house.py:253  hide redis get house_index
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:39:56] "GET /api/v1.0/houses/index HTTP/1.1" 200 -
+INFO house.py:57 hit area info redis
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:39:56] "GET /api/v1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87  * Detected change in '/home/zc/Flask_project/ihome/api_1_0/house.py', reloading
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+INFO _internal.py:87  * Detected change in '/home/zc/Flask_project/ihome/api_1_0/house.py', reloading
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 208-359-922
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:43:56] "GET / HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:43:56] "GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:43:56] "GET /api/v1.0/session HTTP/1.1" 200 -
+INFO house.py:253  hide redis get house_index
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:43:56] "GET /api/v1.0/houses/index HTTP/1.1" 200 -
+INFO house.py:57 hit area info redis
+INFO _internal.py:87 127.0.0.1 - - [20/Oct/2017 11:43:56] "GET /api/v1.0/areas HTTP/1.1" 200 -

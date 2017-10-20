@@ -163,6 +163,5 @@ $(document).ready(function() {
                 }
             }
         });
-
     });
 })

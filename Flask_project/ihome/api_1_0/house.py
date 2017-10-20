@@ -39,7 +39,7 @@ def check_login():
         return jsonify(errno=RET.SESSIONERR, errmsg='false')
 
 
-@api.route('/arears', methods=['GET'])
+@api.route('/areas', methods=['GET'])
 def get_area_info():
     """
     获取城区信息
@@ -56,7 +56,7 @@ def get_area_info():
         # 记录访问redis的时间
         current_app.logger.info('hit area info redis')
         # 因为城区信息就是字符串所以直接拼接 不用jsonify
-        return '{"errno":0, "errmsg":"ok","data":%s}' % areas
+        return '{"errno":"0", "errmsg":"ok","data":%s}' % areas
     # 3.缓存没有的话查msq
     try:
         areas = Area.query.all()
@@ -80,7 +80,7 @@ def get_area_info():
         current_app.logger.error(e)
         return jsonify(errno=RET.DBERR, errmsg='缓存存入异常')
     # 7.返回城区信息
-    return '{"errno":0, "errmsg":"ok", "data":%s}' % areas_info
+    return '{"errno":"0", "errmsg":"ok", "data":%s}' % areas_info
 
 
 @api.route('/houses', methods=['POST'])
@@ -229,7 +229,7 @@ def save_house_image(house_id):
     return jsonify(errno=RET.OK, errmsg='ok', data={"url": image_url})
 
 
-@api.route('/house/index', methods=['GET'])
+@api.route('/houses/index', methods=['GET'])
 def get_house_index():
     """
        项目首页幻灯片信息展示
@@ -251,7 +251,7 @@ def get_house_index():
     # 2. 校验获取结果
     if ret:
         current_app.logger.info(" hide redis get house_index")
-        return '{"errno":0, "errmsge":"ok", "data":%s}' % ret
+        return '{"errno":"0", "errmsge":"ok", "data":%s}' % ret
 
     # 3.查询mysql数据看
     try:
@@ -278,7 +278,7 @@ def get_house_index():
         return jsonify(errno=RET.DBERR, errmsg='缓存首页失败')
     # 8.返回数据
     ret_json = json_houses
-    return '{"errno":0, "errmsg":"ok", "data":%s}' % ret_json
+    return '{"errno":"0", "errmsg":"ok", "data":%s}' % ret_json
 
 
 @api.route('/houses/<int:house_id>', methods=['GET'])
@@ -310,7 +310,7 @@ def get_house_detail(house_id):
     # 4.校验参数结果
     if house_detail:
         current_app.logger.info('hide redis get house_detail')
-        return "{'errno':0, 'errmsg':'ok', 'data':{'user_id':%s, 'house':%s}}" % (user_id, house_detail)
+        return "{'errno':'0', 'errmsg':'ok', 'data':{'user_id':%s, 'house':%s}}" % (user_id, house_detail)
     # 5.查询数据库
     try:
         house = House.query.get(house_id)
@@ -334,7 +334,7 @@ def get_house_detail(house_id):
         current_app.logger.error(e)
 
     # 9.构造响应数据
-    resp = '{"errno":0, "errmsg":"ok","data":{"user_id":%s, "house":%s}}' % (user_id, json_house)
+    resp = '{"errno":"0", "errmsg":"ok","data":{"user_id":%s, "house":%s}}' % (user_id, json_house)
     return resp
 
 
