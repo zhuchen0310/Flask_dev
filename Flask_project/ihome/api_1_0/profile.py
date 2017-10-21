@@ -22,7 +22,7 @@ from ihome import db
 from ihome import constants
 # TODO
 
-@api.route('/session', methods=["POST"])
+@api.route('/sessions', methods=["POST"])
 def login():
     """
     /获取登录参数，mobile, passwd get_json()
@@ -179,7 +179,7 @@ def set_user_auth():
     :return:
     """
     # 获取用户id
-    user_id = g.user_id
+    user_id =session.get('user_id')
     # 获取参数
     user_data = request.get_json()
     # 校验参数
@@ -195,6 +195,7 @@ def set_user_auth():
 
     # 保存数据到数据库
     try:
+        # print (real_name+'--------------'+id_code+'-----'+user_id)
         User.query.filter_by(id=user_id, real_name=None, id_code=None).update({'real_name':real_name, 'id_code':id_code})
         # 提交
         db.session.commit()
@@ -232,6 +233,7 @@ def get_user_auth():
     if user is None:
         return jsonify(errno=RET.DATAERR, errmsg='无效操作')
     else:
+        # print (user.auth_to_dict(),user_id)
         return jsonify(errno=RET.OK, errmsg='ok', data=user.auth_to_dict())
 
 

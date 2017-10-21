@@ -12,7 +12,7 @@ from ihome.utils.response_code import RET
 # 导入缓存
 from ihome import redis_store, db
 # 导入模型
-from ihome.models import Area, House, Facility, HouseImage, User
+from ihome.models import Area, House, Facility, HouseImage, User, Order
 # 导入json
 import json
 # 导入常量
@@ -21,6 +21,8 @@ from ihome import constants
 from ihome.utils.commons import login_required
 # 导入七牛云存储
 from ihome.utils.image_storage import storage
+# 导入时间格式化模块
+import datetime
 
 
 # 检查登录状态
@@ -364,6 +366,151 @@ def get_user_houses():
         houses_list.append(house.to_basic_dict())
     # 6.返回结果
     return jsonify(errno=RET.OK, errmsg='ok', data={"houses": houses_list})
+
+
+@api.route('/houses', methods=['GET'])
+def get_houses_list():
+    """
+    获取房屋列表信息
+    1/尝试获取参数,area_id/start_date_str/end_date_str/sort_key/page
+    2/对日期进行格式化处理
+    3/对页数进行格式化处理
+    4/查询redis缓存数据库,校验查询结果,需要使用哈希类型,便于统一设置数据的过期时间
+    5/查询mysql数据库,定义过滤条件,使用列表存储,filter_params = [area_id] House.query.filter(*filter_params)
+    6/根据排序条件进行排序查询,booking/price/create_time
+    7/使用paginate进行分页房屋数据
+    8/对分页后的数据进行遍历存储,获取房屋基本信息
+    9/把数据放入缓存中
+    10/判断用户访问的页数小于等于分页后的总页数
+    11/对多条数据统一存储,需要使用事务操作,pipeline()
+    12/返回结果
+    :return:
+    """
+
+    # 1. 获取参数
+    area_id = request.args.get('aid', '')
+    start_date_str = request.args.get('sd', '')
+    end_date_str = request.args.get('ed', '')
+    sort_key = request.args.get('sk', 'new')
+    page = request.args.get('p', '1')
+    # 2.对日期进行格式化处理
+    try:
+        start_date, end_date = None, None
+        if start_date_str:
+            start_date = datetime.datetime.strptime(start_date_str, '%Y-%m-%d')
+        if end_date_str:
+            end_date = datetime.datetime.strptime(end_date_str, 'Y%-m%-d%')
+        if start_date_str and end_date_str:
+            assert start_date_str <= end_date_str
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DATAERR, errmsg='格式化时间异常')
+    # 3.格式化页数
+    try:
+        if page:
+            page = int(page)
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DATAERR, errmsg='格式化页面异常')
+    # 4.查询缓存校验结果 使用哈希
+    try:
+        redis_key = 'houses_%s_%s_%s_%s' % (area_id, start_date_str, end_date_str, sort_key)
+        ret = redis_store.hget(redis_key, page)
+    except Exception as e:
+        current_app.logger.error(e)
+        ret = None
+        # return jsonify(errno=RET.DBERR, errmsg='查询缓存异常')
+    # 5.缓存有结果 记录日志
+    if ret:
+        current_app.logger.info('hide houses list info redis')
+        return ret
+    # 6.没有的话需要查数据库
+    try:
+        # 定义过滤条件
+        filter_params = []
+        # 判断区域信息
+        if area_id:
+            filter_params.append(House.area_id == area_id)
+        # 判断日期信息，如果用户选择了开始和结束时间
+        if start_date and end_date:
+            # 查询有冲突的订单
+            conflict_orders = Order.query.filter(Order.end_date >= start_date, Order.begin_date <= end_date).all()
+            # 根据冲突的订单信息获取有冲突的房子
+            conflict_houses_id = [order.house_id for order in conflict_orders]
+            # 判断有冲突房子存在，
+            if conflict_houses_id:
+                filter_params.append(House.id.notin_(conflict_houses_id))
+        # 如果用户只选择了开始日期
+        if start_date:
+            # 查询所有冲突的订单
+            conflict_orders = Order.query.filter(Order.end_date >= start_date).all()
+            # 根据冲突的订单信息获取有冲突的房子
+            conflict_houses_id = [order.house_id for order in conflict_orders]
+            # 判断有冲突的房子存在
+            if conflict_houses_id:
+                filter_params.append(House.id.notin_(conflict_houses_id))
+
+        # 如果用户只选择了结束日期
+        if end_date:
+            # 查询冲突的订单
+            conflict_orders = Order.query.filter(Order.begin_date <= end_date).all()
+            # 根据冲突的订单信息获取有冲突的房子
+            conflict_houses_id = [order.house_id for order in conflict_orders]
+            # 判断有从冲突的房子存在
+            if conflict_houses_id:
+                filter_params.append(House.id.notin_(conflict_houses_id))
+        # 根据sort_key 的排序天剑进行查询
+        # 按照成交信息排序
+        if 'booking' == sort_key:
+            houses = House.query.filter(*filter_params).order_by(House.order_count.desc())
+        # 按照房屋价格从高到低
+        elif 'price-des' == sort_key:
+            houses = House.query.filter(*filter_params).order_by(House.price.desc())
+        # 按照房屋价格从低到高
+        elif 'price-inc' == sort_key:
+            houses = House.query.filter(*filter_params).order_by(House.price.asc())
+        # 默认按照发布时间排序
+        else:
+            houses = House.query.filter(*filter_params).order_by(House.create_time.desc())
+        # 对查询结果进行分页操作, page:分页页数，每页的数据量， Falsk：分页出错不报错误
+        houses_page = houses.paginate(page, constants.HOUSE_LIST_PAGE_CAPACITY, False)
+        # 获取分页后的房屋数据
+        houses_list = houses_page.items
+        # 获取分页后的总页数
+        total_page = houses_page.pages
+        # 获取房屋的基本信息
+        houses_dict_list = []
+        for house in houses_list:
+            houses_dict_list.append(house.to_basic_dict())
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg='数据库查询异常')
+    # 构造响应数据
+    resp = {"errno": RET.OK, "errmsg": 'ok', "data": {"houses": houses_dict_list, "total_page": total_page,
+                                                      "current_page": page
+                                                      }}
+    # 序列化数据
+    resp_json = json.dumps(resp)
+    # 判断页数是否小于总页数
+    if page <= total_page:
+        # 构建redis_key
+        redis_key = "houses_%s_%s_%s_%s" % (area_id, start_date_str, end_date_str, sort_key)
+        # 构造操作redis数据库的事务对象
+        pip = redis_store.pipeline()
+        try:
+            # 开启事务
+            pip.multi()
+            # 保存数据
+            pip.hset(redis_key, resp_json)
+            # 设置过期时间
+            pip.expire(redis_key, constants.HOUSE_LIST_REDIS_EXPIRES)
+            # 执行事务
+            pip.execute()
+        except Exception as e:
+            current_app.logger.error(e)
+
+    # 返回结果
+            return resp_json
 
 
 # TODO
